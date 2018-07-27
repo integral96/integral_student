@@ -1,0 +1,10 @@
+Jul 27 10:42:27 Installed: zlib-devel-1.2.7-17.el7.x86_64
+Jul 27 10:42:27 Installed: elfutils-libelf-devel-0.170-4.el7.x86_64
+Jul 27 10:58:59 Installed: libcom_err-devel-1.42.9-12.el7_5.x86_64
+Jul 27 10:58:59 Installed: libsepol-devel-2.5-8.1.el7.x86_64
+Jul 27 10:58:59 Installed: pcre-devel-8.32-17.el7.x86_64
+Jul 27 10:59:00 Installed: libselinux-devel-2.5-12.el7.x86_64
+Jul 27 10:59:00 Installed: libverto-devel-0.2.5-4.el7.x86_64
+Jul 27 10:59:00 Installed: keyutils-libs-devel-1.5.8-3.el7.x86_64
+Jul 27 10:59:00 Installed: krb5-devel-1.15.1-19.el7.x86_64
+Jul 27 10:59:01 Installed: 1:openssl-devel-1.0.2k-12.el7.x86_64
