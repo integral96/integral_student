@@ -1,0 +1,601 @@
+[vagrant@otuslinux ~]$ sudo fdisk -l | grep sd
+
+Disk /dev/sda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+/dev/sda1            2048        4095        1024   83  Linux
+/dev/sda2   *        4096     2101247     1048576   83  Linux
+/dev/sda3         2101248    83886079    40892416   8e  Linux LVM
+Disk /dev/sdb: 262 MB, 262144000 bytes, 512000 sectors
+Disk /dev/sdc: 262 MB, 262144000 bytes, 512000 sectors
+Disk /dev/sdd: 262 MB, 262144000 bytes, 512000 sectors
+Disk /dev/sde: 262 MB, 262144000 bytes, 512000 sectors
+
+[vagrant@otuslinux ~]$ sudo mdadm -E /dev/sd[b-e]
+mdadm: No md superblock detected on /dev/sdb.
+mdadm: No md superblock detected on /dev/sdc.
+mdadm: No md superblock detected on /dev/sdd.
+mdadm: No md superblock detected on /dev/sde.
+
+[vagrant@otuslinux ~]$ sudo fdisk /dev/sdb
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0xae1a3172.
+
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): p
+Partition number (1-4, default 1): 1
+First sector (2048-511999, default 2048): 
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-511999, default 511999): 
+Using default value 511999
+Partition 1 of type Linux and of size 249 MiB is set
+
+Command (m for help): p
+
+Disk /dev/sdb: 262 MB, 262144000 bytes, 512000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0xae1a3172
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            2048      511999      254976   83  Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+
+[vagrant@otuslinux ~]$ sudo fdisk /dev/sdc
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x707e8fe0.
+
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): p
+Partition number (1-4, default 1): 
+First sector (2048-511999, default 2048): 
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-511999, default 511999): 
+Using default value 511999
+Partition 1 of type Linux and of size 249 MiB is set
+
+Command (m for help): p
+
+Disk /dev/sdc: 262 MB, 262144000 bytes, 512000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x707e8fe0
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1            2048      511999      254976   83  Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+[vagrant@otuslinux ~]$ sudo fdisk /dev/sdd
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x07818db7.
+
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): p
+Partition number (1-4, default 1): 
+First sector (2048-511999, default 2048): 
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-511999, default 511999): 
+Using default value 511999
+Partition 1 of type Linux and of size 249 MiB is set
+
+Command (m for help): p
+
+Disk /dev/sdd: 262 MB, 262144000 bytes, 512000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x07818db7
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdd1            2048      511999      254976   83  Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+[vagrant@otuslinux ~]$ sudo fdisk /dev/sde
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x269adc20.
+
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): 
+Using default response p
+Partition number (1-4, default 1): 
+First sector (2048-511999, default 2048): 
+Using default value 2048
+Last sector, +sectors or +size{K,M,G} (2048-511999, default 511999): 
+Using default value 511999
+Partition 1 of type Linux and of size 249 MiB is set
+
+Command (m for help): p
+
+Disk /dev/sde: 262 MB, 262144000 bytes, 512000 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x269adc20
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sde1            2048      511999      254976   83  Linux
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+[vagrant@otuslinux ~]$ sudo mdadm -E /dev/sd[b-e]
+/dev/sdb:
+   MBR Magic : aa55
+Partition[0] :       509952 sectors at         2048 (type 83)
+/dev/sdc:
+   MBR Magic : aa55
+Partition[0] :       509952 sectors at         2048 (type 83)
+/dev/sdd:
+   MBR Magic : aa55
+Partition[0] :       509952 sectors at         2048 (type 83)
+/dev/sde:
+   MBR Magic : aa55
+Partition[0] :       509952 sectors at         2048 (type 83)
+[vagrant@otuslinux ~]$ sudo mdadm --create /dev/md0 --level=5 --raid-devices=4 /dev/sd[b-e]1
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
+[vagrant@otuslinux ~]$ sudo cat /proc/mdstat
+Personalities : [raid6] [raid5] [raid4] 
+md0 : active raid5 sde1[4] sdd1[2] sdc1[1] sdb1[0]
+      758784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [4/4] [UUUU]
+      
+unused devices: <none>
+
+[vagrant@otuslinux ~]$ sudo mdadm -E /dev/sd[b-d]1
+/dev/sdb1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : e506f892:4c2d3d4b:ef3ec781:bf0402f6
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : 5d303cae - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 0
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+/dev/sdc1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : b9f8d870:50aa0872:7b60c92e:d6487859
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : 72551129 - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 1
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+/dev/sdd1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : 336377e2:ea09844b:457db596:49513e36
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : 221007c - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 2
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+[vagrant@otuslinux ~]$ sudo mdadm -E /dev/sd[b-e]1
+/dev/sdb1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : e506f892:4c2d3d4b:ef3ec781:bf0402f6
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : 5d303cae - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 0
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+/dev/sdc1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : b9f8d870:50aa0872:7b60c92e:d6487859
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : 72551129 - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 1
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+/dev/sdd1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : 336377e2:ea09844b:457db596:49513e36
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : 221007c - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 2
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+/dev/sde1:
+          Magic : a92b4efc
+        Version : 1.2
+    Feature Map : 0x0
+     Array UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+           Name : otuslinux:0  (local to host otuslinux)
+  Creation Time : Fri Aug  3 15:49:49 2018
+     Raid Level : raid5
+   Raid Devices : 4
+
+ Avail Dev Size : 505856 (247.00 MiB 259.00 MB)
+     Array Size : 758784 (741.00 MiB 776.99 MB)
+    Data Offset : 4096 sectors
+   Super Offset : 8 sectors
+   Unused Space : before=4016 sectors, after=0 sectors
+          State : clean
+    Device UUID : 3747ba32:d0015c73:ddd0995b:c04eb4ed
+
+    Update Time : Fri Aug  3 15:49:52 2018
+  Bad Block Log : 512 entries available at offset 16 sectors
+       Checksum : f6962d76 - correct
+         Events : 18
+
+         Layout : left-symmetric
+     Chunk Size : 512K
+
+   Device Role : Active device 3
+   Array State : AAAA ('A' == active, '.' == missing, 'R' == replacing)
+[vagrant@otuslinux ~]$ sudo mdadm --detail /dev/md0
+/dev/md0:
+           Version : 1.2
+     Creation Time : Fri Aug  3 15:49:49 2018
+        Raid Level : raid5
+        Array Size : 758784 (741.00 MiB 776.99 MB)
+     Used Dev Size : 252928 (247.00 MiB 259.00 MB)
+      Raid Devices : 4
+     Total Devices : 4
+       Persistence : Superblock is persistent
+
+       Update Time : Fri Aug  3 15:49:52 2018
+             State : clean 
+    Active Devices : 4
+   Working Devices : 4
+    Failed Devices : 0
+     Spare Devices : 0
+
+            Layout : left-symmetric
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : otuslinux:0  (local to host otuslinux)
+              UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+            Events : 18
+
+    Number   Major   Minor   RaidDevice State
+       0       8       17        0      active sync   /dev/sdb1
+       1       8       33        1      active sync   /dev/sdc1
+       2       8       49        2      active sync   /dev/sdd1
+       4       8       65        3      active sync   /dev/sde1
+[vagrant@otuslinux ~]$ sudo mkfs.ext4 /dev/md0 
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=128 blocks, Stripe width=384 blocks
+47424 inodes, 189696 blocks
+9484 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=195035136
+6 block groups
+32768 blocks per group, 32768 fragments per group
+7904 inodes per group
+Superblock backups stored on blocks: 
+	32768, 98304, 163840
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[vagrant@otuslinux ~]$ pwd
+/home/vagrant
+[vagrant@otuslinux ~]$ sudo mkdir /mnt/raid5
+[vagrant@otuslinux ~]$ sudo mount /dev/md0 /mnt/raid5/
+[vagrant@otuslinux ~]$ ll /mnt/raid5/
+total 16
+drwx------. 2 root root 16384 Aug  3 16:02 lost+found
+[vagrant@otuslinux ~]$ df -h
+Filesystem                       Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup00-LogVol00   38G  1.8G   36G   5% /
+devtmpfs                         487M     0  487M   0% /dev
+tmpfs                            496M     0  496M   0% /dev/shm
+tmpfs                            496M  6.8M  490M   2% /run
+tmpfs                            496M     0  496M   0% /sys/fs/cgroup
+/dev/sda2                       1014M   63M  952M   7% /boot
+tmpfs                            100M     0  100M   0% /run/user/1000
+tmpfs                            100M     0  100M   0% /run/user/0
+/dev/md0                         714M  1.5M  661M   1% /mnt/raid5
+
+[vagrant@otuslinux ~]$ sudo touch /mnt/raid5/test_{1..9}
+
+[vagrant@otuslinux ~]$ ll /mnt/raid5/
+total 16
+drwx------. 2 root root 16384 Aug  3 16:02 lost+found
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_1
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_2
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_3
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_4
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_5
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_6
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_7
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_8
+-rw-r--r--. 1 root root     0 Aug  3 16:06 test_9
+[vagrant@otuslinux ~]$ sudo cat /proc/mdstat 
+Personalities : [raid6] [raid5] [raid4] 
+md0 : active raid5 sde1[4] sdd1[2] sdc1[1] sdb1[0]
+      758784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [4/4] [UUUU]
+      
+unused devices: <none>
+[vagrant@otuslinux ~]$ sudo vim /etc/fstab 
+sudo: vim: command not found
+[vagrant@otuslinux ~]$ sudo vi /etc/fstab 
+[vagrant@otuslinux ~]$ sudo mount -a
+[vagrant@otuslinux ~]$ df -h
+Filesystem                       Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup00-LogVol00   38G  1.8G   36G   5% /
+devtmpfs                         487M     0  487M   0% /dev
+tmpfs                            496M     0  496M   0% /dev/shm
+tmpfs                            496M  6.8M  490M   2% /run
+tmpfs                            496M     0  496M   0% /sys/fs/cgroup
+/dev/sda2                       1014M   63M  952M   7% /boot
+tmpfs                            100M     0  100M   0% /run/user/1000
+tmpfs                            100M     0  100M   0% /run/user/0
+/dev/md0                         714M  1.5M  661M   1% /mnt/raid5
+[vagrant@otuslinux ~]$ 
+
+[vagrant@otuslinux ~]$ sudo su -
+[root@otuslinux ~]# mdadm /dev/m
+mapper/ mcelog  md0     mem     mqueue/ 
+[root@otuslinux ~]# mdadm /dev/md0 -f /dev/sd
+sda   sda1  sda2  sda3  sdb   sdb1  sdc   sdc1  sdd   sdd1  sde   sde1  
+[root@otuslinux ~]# mdadm /dev/md0 -f /dev/sdd
+mdadm: set device faulty failed for /dev/sdd:  No such device
+[root@otuslinux ~]# mdadm /dev/md0 -f /dev/sdd1
+mdadm: set /dev/sdd1 faulty in /dev/md0
+[root@otuslinux ~]# mdadm -D /dev/md0 
+/dev/md0:
+           Version : 1.2
+     Creation Time : Fri Aug  3 15:49:49 2018
+        Raid Level : raid5
+        Array Size : 758784 (741.00 MiB 776.99 MB)
+     Used Dev Size : 252928 (247.00 MiB 259.00 MB)
+      Raid Devices : 4
+     Total Devices : 4
+       Persistence : Superblock is persistent
+
+       Update Time : Fri Aug  3 17:06:06 2018
+             State : clean, degraded 
+    Active Devices : 3
+   Working Devices : 3
+    Failed Devices : 1
+     Spare Devices : 0
+
+            Layout : left-symmetric
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : otuslinux:0  (local to host otuslinux)
+              UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+            Events : 20
+
+    Number   Major   Minor   RaidDevice State
+       0       8       17        0      active sync   /dev/sdb1
+       1       8       33        1      active sync   /dev/sdc1
+       -       0        0        2      removed
+       4       8       65        3      active sync   /dev/sde1
+
+       2       8       49        -      faulty   /dev/sdd1
+[root@otuslinux ~]# cat /proc/mdstat 
+Personalities : [raid6] [raid5] [raid4] 
+md0 : active raid5 sde1[4] sdd1[2](F) sdc1[1] sdb1[0]
+      758784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [4/3] [UU_U]
+      
+unused devices: <none>
+
+[root@otuslinux ~]# mdadm /dev/md0 --remove /dev/sdd1
+mdadm: hot removed /dev/sdd1 from /dev/md0
+[root@otuslinux ~]# mdadm --zero-superblock /dev/sdd
+mdadm: Unrecognised md component device - /dev/sdd
+[root@otuslinux ~]# mdadm --zero-superblock /dev/sdd1
+[root@otuslinux ~]# mdadm /dev/md0 --add /dev/sdd1
+mdadm: added /dev/sdd1
+[root@otuslinux ~]# cat /proc/mdstat 
+Personalities : [raid6] [raid5] [raid4] 
+md0 : active raid5 sdd1[5] sde1[4] sdc1[1] sdb1[0]
+      758784 blocks super 1.2 level 5, 512k chunk, algorithm 2 [4/4] [UUUU]
+      
+unused devices: <none>
+[root@otuslinux ~]# mdadm -D /dev/md0 
+/dev/md0:
+           Version : 1.2
+     Creation Time : Fri Aug  3 15:49:49 2018
+        Raid Level : raid5
+        Array Size : 758784 (741.00 MiB 776.99 MB)
+     Used Dev Size : 252928 (247.00 MiB 259.00 MB)
+      Raid Devices : 4
+     Total Devices : 4
+       Persistence : Superblock is persistent
+
+       Update Time : Fri Aug  3 17:13:22 2018
+             State : clean 
+    Active Devices : 4
+   Working Devices : 4
+    Failed Devices : 0
+     Spare Devices : 0
+
+            Layout : left-symmetric
+        Chunk Size : 512K
+
+Consistency Policy : resync
+
+              Name : otuslinux:0  (local to host otuslinux)
+              UUID : 1c5d3d7e:56252bd1:03f45112:486f975c
+            Events : 40
+
+    Number   Major   Minor   RaidDevice State
+       0       8       17        0      active sync   /dev/sdb1
+       1       8       33        1      active sync   /dev/sdc1
+       5       8       49        2      active sync   /dev/sdd1
+       4       8       65        3      active sync   /dev/sde1
+[root@otuslinux ~]# ^C
+[root@otuslinux ~]# 
+
+
