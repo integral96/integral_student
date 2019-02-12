@@ -1,3 +1,3 @@
-# integral_student
+# integral
 for_otus
 training linux
